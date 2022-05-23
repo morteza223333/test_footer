@@ -1,0 +1,123 @@
+.pdf_footer {
+    position: relative;
+    background: #17114D;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.pdf_frame {
+    position: absolute;
+    top: -30px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.pdf_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 80px 145px 28px 145px;
+}
+
+.pdf_base {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.pdf_contact {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf_footer_logo {
+    margin-bottom: 17px;
+}
+
+.pdf_base_item {
+    display: flex;
+    flex: 4;
+    flex-wrap: nowrap;
+}
+
+.pdf_enmad {
+    flex: 1;
+}
+
+.pdf_contact_item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+}
+
+.pdf_contact_item>span {
+    word-break: keep-all;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    color: #FFFFFF;
+    margin-right: 20px;
+}
+
+.pdf_social {
+    height: 48px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+.pdf_to_top {
+    box-sizing: border-box;
+    padding:0px 14px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    color: #31A94E;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95px;
+    white-space: nowrap;
+}
+
+.pdf_to_top>img {
+    margin-left: 5px;
+}
+
+
+.pdf_social>div {
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    height: 100%;
+}
+
+.pdf_social_item {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding:0px 10px;
+}
+
+.pdf_social_item>a {
+    margin-right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(49, 169, 78, 0.3);
+}
