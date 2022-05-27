@@ -29,8 +29,16 @@ a:focus {
     text-decoration: none;
 }
 
+.pdf_cursor {
+    cursor: url("./assets/tap.png"), auto;
+}
+
+
 .pdf_show_menu {
-    display: flex !important;
+    /* display: flex !important; */
+    width: 100% !important;
+    padding: 30px 18px !important;
+    overflow: auto !important;
 }
 
 
@@ -82,11 +90,14 @@ a:focus {
 
 
 .pdf_mega_menu_item {
-    min-width: 200px;
+    min-width: 195px;
     flex: 1;
 }
 
 .pdf_title_drop_down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     white-space: nowrap;
     font-family: 'IRANYekanWebFn';
     font-style: normal;
@@ -98,20 +109,7 @@ a:focus {
 }
 
 
-.pdf_drop_down_ul {
-    right: 0;
-    min-width: 100%;
-    padding: 17px 18px 41px 18px;
-    top: 100%;
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(20px);
-    border-radius: 0px 0px 5px 5px;
-    z-index: 2;
-}
+
 
 .pdf_stander>li>a,
 .pdf_drop_down_ul>li>a {
@@ -136,18 +134,37 @@ a:focus {
 }
 
 .pdf_mega_menu {
-    /* width: 100%; */
     right: 0;
     top: 100%;
-    padding: 17px 18px 41px 18px;
-    display: none;
+    height: 0px;
+    display: flex;
+    overflow: hidden;
     position: absolute;
-    min-height: 100%;
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
     border-radius: 0px 0px 5px 5px;
     z-index: 2;
+    transition: all 0.4s ease 0s;
+    transform: scale(0);
+}
+
+.pdf_drop_down_ul {
+    transition: all 0.4s ease 0s;
+    right: 0;
+    min-width: 100%;
+    top: 100%;
+    height: 0px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 0px 0px 5px 5px;
+    z-index: 2;
+    overflow: hidden;
+    transform: scale(0);
 }
 
 
@@ -155,26 +172,124 @@ a:focus {
 
 
 
-/*hover*/
 
 .pdf_mega_menu:hover,
-.pdf_drop_down_ul:hover,
-.pdf_drop_down:hover>.pdf_drop_down_ul,
 .pdf_mega_drop_down:hover>.pdf_mega_menu {
+    padding: 17px 18px 41px 18px;
+    height: auto;
+    transform: scale(1);
+
+}
+
+.pdf_drop_down_ul:hover,
+.pdf_drop_down:hover>.pdf_drop_down_ul {
+    padding: 17px 18px 41px 18px;
+    height: auto;
+    transform: scale(1);
+}
+
+.pdf_mega_menu_image {
+    position: absolute;
+    width: 137px;
+    height: 137px;
+    left: 18px;
+    bottom: 17px;
+}
+
+
+/* ######################## icon menu style ######################### */
+.pdf_fixed_menu_icon {
+    position: fixed;
+    z-index: 3;
+    left: 20px;
+    top: 20px;
+    transition: 1s;
+}
+
+#pdf_menu_button {
+    display: none;
+}
+
+.pdf_menu_icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin: 10% auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf_line {
+    position: absolute;
+    height: 4px;
+    border-radius: 3px;
+    width: 30px;
+    background-color: black;
+    transition: .5s ease;
+}
+
+#toggle_menu_icon {
+    display: none;
+}
+
+.pdf_line::before {
+    border-radius: 3px;
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    background-color: black;
+    top: -8px;
+    transition: .5s ease;
+}
+
+
+.pdf_line::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    border-radius: 3px;
+    width: 30px;
+    background-color: black;
+    top: 8px;
+}
+
+#toggle_menu_icon:checked+label .pdf_line {
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+
+#toggle_menu_icon:checked+label .pdf_line::before {
+    transform: rotate(-90deg) translateX(-8px);
+    background-color: #fff;
+}
+
+#toggle_menu_icon:checked+label .pdf_line::after {
+    display: none;
 }
 
 
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .pdf_exo_menu {
-        display: none;
+        width: 0px;
         flex-direction: column;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
         min-height: 58px;
-        background: rgba(49, 49, 49, 0.384);
-        width: 100%;
-        height: auto;
-        padding: 18px;
+        background: rgba(7, 7, 7, 0.726);
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .pdf_stander>li>a,
+    .pdf_drop_down_ul>li>a {
+        color: #fff;
     }
 
     .pdf_drop_down_ul,
@@ -183,15 +298,16 @@ a:focus {
         background: none;
         box-shadow: none;
         backdrop-filter: none;
+        flex-wrap: wrap;
     }
 
     .pdf_drop_down,
     .pdf_mega_drop_down {
+        height: auto;
         width: 100%;
         flex-direction: column;
         background-color: transparent;
         background: none;
-        min-height: 42px;
     }
 
     .pdf_exo_menu>li>.active,
@@ -208,14 +324,33 @@ a:focus {
     .pdf_exo_menu>li {
         width: 100%;
     }
-}
 
-.toggle-menu {
-    position: absolute;
-    right: 0px;
-    padding: 20px;
-    font-size: 27px;
-    background-color: #ccc;
-    color: #23364b;
-    top: 0px;
+    .pdf_title_drop_down {
+        min-height: 42px;
+        justify-content: flex-start;
+    }
+
+    .pdf_toggle_menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+
+    #pdf_menu_button {
+        display: block;
+    }
+
+    .pdf_mega_menu_image {
+        display: none;
+    }
+
+    .pdf_mega_menu:hover,
+    .pdf_mega_drop_down:hover>.pdf_mega_menu {
+        padding: 5px 10px;
+    }
+
+    .pdf_drop_down_ul:hover,
+    .pdf_drop_down:hover>.pdf_drop_down_ul {
+        padding: 5px 10px;
+    }
 }
